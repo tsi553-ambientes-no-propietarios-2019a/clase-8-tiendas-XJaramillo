@@ -20,7 +20,7 @@ if($_POST) {
 		if ($conn->error) {
 			echo 'Ocurrió un error ' . $conn->error;
 		} else {
-			redirect('../home_tienda.php');
+			redirect('../home.php');
 		}
 	} else {
 		redirect('../new_product.php?error_message=Ingrese todos los datos!');

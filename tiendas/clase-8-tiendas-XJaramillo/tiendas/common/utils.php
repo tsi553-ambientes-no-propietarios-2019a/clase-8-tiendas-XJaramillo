@@ -15,12 +15,10 @@ function redirect($url) {
 }
 
 function getProducts($conn) {
-	
 	$user_id = $_SESSION['user']['id'];
-	$variable1=($_GET['variable1']);
-	$sql = "SELECT p.code, p.name, p.type, p.stock, p.price FROM product p JOIN user u ON p.user = u.id WHERE u.store = '$variable1'";
-
-
+	$sql = "SELECT *
+		FROM product
+		WHERE user='$user_id'";
 
 		$res = $conn->query($sql);
 
@@ -37,35 +35,6 @@ function getProducts($conn) {
 
 		return $products;
 }
-
-function getTiendas($conn) {
-	$user_id = $_SESSION['user']['id'];
-	$sql = "SELECT id,store
-		FROM user";
-
-
-
-		$res = $conn->query($sql);
-
-		$tiendas = [];
-		if($res->num_rows > 0) {
-			while ($row = $res->fetch_assoc()) {
-				$tiendas[] = $row;
-			}
-		}
-
-		return $tiendas;
-
-
-}
-
-//----------------------------------------------------------------------------------------------
-
-
-//----------------------------------------------------------------------------------------------
-
-
-
 
 $public_pages = [
 	'/tiendas/index.php', 

@@ -23,7 +23,7 @@ if($_POST) {
 						'username' => $row['username'],
 						'id' => $row['id']
 					];
-					redirect('../home_tienda.php');
+					redirect('../home.php');
 				}
 		} else {
 			redirect('../index.php?error_message=Usuario o clave incorrectos!');
